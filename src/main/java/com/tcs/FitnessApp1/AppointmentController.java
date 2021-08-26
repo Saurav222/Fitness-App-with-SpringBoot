@@ -1,4 +1,4 @@
-package com.tcs.FitnessApp1;
+package com.tcs.fitnessapp1;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,21 +22,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AppointmentController {
 	@Autowired
-	private IAppointmentRepository appointmentRepository;
+	public IAppointmentRepository appointmentRepository;
 
 	@PostMapping("/placeAppointment")
-	private void placeAppointment(@RequestBody @Valid Appointment appointment) {
+	public void placeAppointment(@RequestBody @Valid Appointment appointment) {
 		appointmentRepository.save(appointment);
 	}
 
 	@GetMapping("/getAllAppointments")
-	private List<Appointment> getAllAppointments() {
+	public List<Appointment> getAllAppointments() {
 		return (List<Appointment>) appointmentRepository.findAll();
 
 	}
 
 	@GetMapping("getAppointment/{id}")
-	private Optional<Appointment> getAppointmentById(@PathVariable int id) {
+	public Optional<Appointment> getAppointmentById(@PathVariable int id) {
 		return appointmentRepository.findById(id);
 	}
 	
@@ -52,26 +52,26 @@ public class AppointmentController {
 		if(appointment.isPresent()) {
 			appFromDb = appointment.get();
 		}
-		if(StringUtils.hasText(app.getTrainerpreference())) {
-			appFromDb.setTrainerpreference(app.getTrainerpreference());
+		if(StringUtils.hasText(app.getTrainerPreference())) {
+			appFromDb.setTrainerPreference(app.getTrainerPreference());
 		}
-		if(StringUtils.hasText(app.getUser_email())) {
-			appFromDb.setUser_email(app.getUser_email());
+		if(StringUtils.hasText(app.getUserEmail())) {
+			appFromDb.setUserEmail(app.getUserEmail());
 		}
-		if(StringUtils.hasText(app.getPhysiorequired())) {
-			appFromDb.setPhysiorequired(app.getPhysiorequired());
+		if(StringUtils.hasText(app.getPhysioRequired())) {
+			appFromDb.setPhysioRequired(app.getPhysioRequired());
 		}
-		if(StringUtils.hasLength(String.valueOf(app.getUser_mobno()))){
-			appFromDb.setUser_mobno(app.getUser_mobno());
+		if(StringUtils.hasLength(String.valueOf(app.getUserMobNo()))){
+			appFromDb.setUserMobNo(app.getUserMobNo());
 		}
-		if(StringUtils.hasText(app.getNoofweeks().toString())) {
-			appFromDb.setNoofweeks(app.getNoofweeks());
+		if(StringUtils.hasText(app.getNoOfWeeks().toString())) {
+			appFromDb.setNoOfWeeks(app.getNoOfWeeks());
 		}
-		if(StringUtils.hasText(app.getPacakageselected().toString())) {
-			appFromDb.setPacakageselected(app.getPacakageselected());
+		if(StringUtils.hasText(app.getPacakageSelected().toString())) {
+			appFromDb.setPacakageSelected(app.getPacakageSelected());
 		}
-		if(StringUtils.hasText(app.getUser_name())) {
-			appFromDb.setUser_name(app.getUser_name());
+		if(StringUtils.hasText(app.getUserName())) {
+			appFromDb.setUserName(app.getUserName());
 		}
 		appointmentRepository.save(appFromDb);
 	}	

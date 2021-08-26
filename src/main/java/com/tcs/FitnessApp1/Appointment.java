@@ -1,4 +1,4 @@
-package com.tcs.FitnessApp1;
+package com.tcs.fitnessapp1;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,30 +17,30 @@ public class Appointment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer appointment_id;
+	private Integer appointmentId;
 
 	@NotBlank(message = "Username name cannot be blank")
-	private String user_name;
+	private String userName;
 	
-	private long user_mobno;
+	private long userMobNo;
 
 	@NotBlank(message = "Email cannot be blank")
 	@Email(message = "enter valid email")
-	private String user_email;
+	private String userEmail;
 
 	@NotBlank(message = "trainerpreference cannot be blank")
-	private String trainerpreference;
+	private String trainerPreference;
 
-	private Integer noofweeks;
+	private Integer noOfWeeks;
 
-	private Integer pacakageselected;
+	private Integer pacakageSelected;
 
-	private String physiorequired;
+	private String physioRequired;
 
 	@Override
 	public String toString() {
-		return "Appointment [appointmentID=" + appointment_id + ", trainerpreference=" + trainerpreference
-				+ ", physioRequired=" + physiorequired + ", packageName=" + pacakageselected + ", username=" + user_name
-				+ ", user_Email=" + user_email + "]";
+		return "Appointment [appointmentID=" + appointmentId + ", trainerpreference=" + trainerPreference
+				+ ", physioRequired=" + physioRequired + ", packageName=" + pacakageSelected + ", username=" + userName
+				+ ", user_Email=" + userEmail + "]";
 	}
 }

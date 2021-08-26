@@ -1,4 +1,4 @@
-package com.tcs.FitnessApp1;
+package com.tcs.fitnessapp1;
 
 public class AppointmentNotFoundException extends RuntimeException {
 
