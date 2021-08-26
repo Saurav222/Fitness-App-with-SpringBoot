@@ -3,6 +3,8 @@ package com.tcs.FitnessApp1;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -23,7 +25,7 @@ public class AppointmentController {
 	private IAppointmentRepository appointmentRepository;
 
 	@PostMapping("/placeAppointment")
-	private void placeAppointment(@RequestBody Appointment appointment) {
+	private void placeAppointment(@RequestBody @Valid Appointment appointment) {
 		appointmentRepository.save(appointment);
 	}
 
@@ -44,7 +46,7 @@ public class AppointmentController {
 	}
 	
 	@PutMapping("/update/{id}")
-	public void updateAppointment(@PathVariable("id") Integer id,@RequestBody Appointment app) {
+	public void updateAppointment(@PathVariable("id") Integer id,@RequestBody @Valid Appointment app) {
 		Optional<Appointment> appointment = appointmentRepository.findById(id);
 		Appointment appFromDb = new Appointment();
 		if(appointment.isPresent()) {

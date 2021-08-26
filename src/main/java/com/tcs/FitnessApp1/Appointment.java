@@ -16,7 +16,7 @@ public class Appointment {
 
 	@NotBlank(message = "Username name cannot be blank")
 	private String user_name;
-
+	
 	private long user_mobno;
 
 	@NotBlank(message = "Email cannot be blank")
