@@ -40,7 +40,7 @@ public class AppointmentController {
 		return appointmentRepository.findById(id);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("delete/{id}")
 	public void deleteAppointmentById(@PathVariable int id) {
 		appointmentRepository.deleteById(id);
 	}
